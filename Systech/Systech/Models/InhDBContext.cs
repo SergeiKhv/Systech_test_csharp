@@ -13,7 +13,8 @@ namespace Systech.Models
 
         public InhDBContext()
         {
-            if (!File.Exists(@"C:\Users\HighTension\Desktop\systech\Database\Sample.db"))
+			//добавить расположение ваше базы
+            if (!File.Exists())
             {
                 Database.EnsureDeleted();
                 Database.EnsureCreated();
@@ -22,7 +23,8 @@ namespace Systech.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionbuilder)
         {
-            optionbuilder.UseSqlite(@"Data Source=C:\Users\HighTension\Desktop\systech\Database\Sample.db");
+			//добавить расположение ваше базы
+            optionbuilder.UseSqlite();
         }
 
         public DbSet<Person> People { get; set; }
